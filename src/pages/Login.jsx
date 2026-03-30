@@ -30,7 +30,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 w-full max-w-md">
+     <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-gray-200 w-full max-w-md mx-4 sm:mx-0">
 
         <h1 className="text-2xl font-bold text-gray-800 mb-1">
           {isSignUp ? 'Create your account' : 'Welcome back'}

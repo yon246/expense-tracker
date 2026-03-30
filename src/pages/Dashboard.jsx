@@ -57,16 +57,13 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      <nav className="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
-        <h1 className="text-lg font-bold text-gray-800">Expense Tracker</h1>
-        <div className="flex items-center gap-6">
-          <Link to="/dashboard" className="text-sm text-blue-600 font-medium">
-            Dashboard
-          </Link>
+      <nav className="bg-white border-b border-gray-200 px-4 py-4 flex justify-between items-center">
+        <h1 className="text-base font-bold text-gray-800">Expense Tracker</h1>
+        <div className="flex items-center gap-3">
           <Link to="/savings" className="text-sm text-gray-500 hover:text-gray-800">
             Savings
           </Link>
-          <span className="text-sm text-gray-500">{user?.email}</span>
+          <span className="text-sm text-gray-400 hidden sm:block">{user?.email}</span>
           <button
             onClick={handleSignOut}
             className="text-sm text-red-500 hover:text-red-700"
@@ -76,30 +73,30 @@ export default function Dashboard() {
         </div>
       </nav>
 
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-3xl mx-auto px-4 py-6">
 
-        <div className="grid grid-cols-4 gap-4 mb-6">
-          <div className="bg-white border border-gray-200 rounded-xl p-5">
-            <p className="text-sm text-gray-500 mb-1">All time spent</p>
-            <p className="text-2xl font-bold text-gray-800">${total.toFixed(2)}</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          <div className="bg-white border border-gray-200 rounded-xl p-4">
+            <p className="text-xs text-gray-500 mb-1">All time spent</p>
+            <p className="text-xl font-bold text-gray-800">${total.toFixed(2)}</p>
           </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-5">
-            <p className="text-sm text-gray-500 mb-1">This month</p>
-            <p className="text-2xl font-bold text-gray-800">${thisMonthTotal.toFixed(2)}</p>
+          <div className="bg-white border border-gray-200 rounded-xl p-4">
+            <p className="text-xs text-gray-500 mb-1">This month</p>
+            <p className="text-xl font-bold text-gray-800">${thisMonthTotal.toFixed(2)}</p>
           </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-5">
-            <p className="text-sm text-gray-500 mb-1">Top category</p>
-            <p className="text-2xl font-bold text-gray-800">
+          <div className="bg-white border border-gray-200 rounded-xl p-4">
+            <p className="text-xs text-gray-500 mb-1">Top category</p>
+            <p className="text-xl font-bold text-gray-800">
               {topCategory ? topCategory[0] : '—'}
             </p>
           </div>
-          <Link to="/savings" className="bg-green-50 border border-green-200 rounded-xl p-5 hover:bg-green-100">
-            <p className="text-sm text-green-600 mb-1">Total saved</p>
-            <p className="text-2xl font-bold text-green-700">${totalSaved.toFixed(2)}</p>
+          <Link to="/savings" className="bg-green-50 border border-green-200 rounded-xl p-4 hover:bg-green-100">
+            <p className="text-xs text-green-600 mb-1">Total saved</p>
+            <p className="text-xl font-bold text-green-700">${totalSaved.toFixed(2)}</p>
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 mb-6">
+       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           <div className="bg-white border border-gray-200 rounded-xl p-5">
             <p className="text-sm font-medium text-gray-700 mb-4">Spending by category</p>
             <CategoryPieChart expenses={expenses} />
